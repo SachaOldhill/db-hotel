@@ -6,6 +6,21 @@
 6 - Selezionare tutti gli ospiti che abbiano meno di 30 anni
 7 - Seleziona tutte le prenotazioni precedenti a maggio 2018
 
+
+8 - Come si chiamano gli ospiti che hanno fatto più di due prenotazioni
+9 - Stampare tutti gli ospiti per ogni prenotazione
+10- Stampare Nome, Cognome, Prezzo e pagante per 
+    tutte le prenotazioni fatte a maggio 2018
+11- Fai la somma di tutti i prezzi delle prenotazioni
+    per le stanze del 1 piano
+12- Prendi i dati di fatturazione per la prenotazione
+    con id=7
+13- Le stanze sono state tutte prenotate almeno una volta?
+14- Conta gli ospiti raggruppandoli per anno di nascita
+15- Somma i prezzi dei pagamenti raggruppandoli per status
+16- Conta quante volte è stata prenotata ogni stanza
+17- Quante prenotazioni ha fatto l'ospite che ha fatto più prenotazioni?
+
 1 - SELECT * FROM `ospiti` 
 2 - SELECT * FROM ospiti WHERE document_type LIKE "CI"
 3 - SELECT * FROM paganti WHERE ospite_id <> 'NULL'
@@ -13,3 +28,8 @@
 5 - SELECT * FROM ospiti WHERE name LIKE 'E%'
 6 - SELECT * FROM ospiti WHERE date_of_birth > '1991-05-11'
 7 - SELECT * FROM prenotazioni WHERE created_at < '2018-05-01'
+
+
+9 - SELECT * FROM ospiti LEFT JOIN prenotazioni ON ospiti.id = prenotazioni.id
+11- SELECT floor, SUM(price) FROM pagamenti JOIN stanze ON pagamenti.id = stanze.id GROUP BY floor
+13- SELECT * FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id

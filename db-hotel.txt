@@ -30,7 +30,8 @@
 7 - SELECT * FROM prenotazioni WHERE created_at < '2018-05-01'
 
 
+8 - SELECT ospiti.name, ospite_id, COUNT(*) FROM prenotazioni_has_ospiti JOIN ospiti ON prenotazioni_has_ospiti.ospite_id = ospiti.id GROUP BY ospite_id
 9 - SELECT * FROM ospiti LEFT JOIN prenotazioni ON ospiti.id = prenotazioni.id
 11- SELECT floor, SUM(price) FROM pagamenti JOIN stanze ON pagamenti.id = stanze.id GROUP BY floor
-13- SELECT * FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id
+13- SELECT * FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id    ` ` SELECT stanza_id, COUNT(*) FROM prenotazioni GROUP BY stanza_id
 16- SELECT stanze.room_number, COUNT(room_number) FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id GROUP BY room_number

@@ -44,4 +44,13 @@ FROM ospiti
 11- SELECT floor, SUM(price) FROM pagamenti JOIN stanze ON pagamenti.id = stanze.id GROUP BY floor
 12- SELECT * FROM pagamenti WHERE id = 7
 13- SELECT * FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id    ` ` SELECT stanza_id, COUNT(*) FROM prenotazioni GROUP BY stanza_id
+14- SELECT YEAR(date_of_birth), COUNT(name) FROM ospiti GROUP BY YEAR(date_of_birth)
+15- SELECT status, SUM(price) FROM pagamenti GROUP BY status
 16- SELECT stanze.room_number, COUNT(room_number) FROM stanze LEFT JOIN prenotazioni ON stanze.id = prenotazioni.stanza_id GROUP BY room_number
+17- SELECT prenotazioni_has_ospiti.ospite_id, COUNT(prenotazioni_has_ospiti.ospite_id)
+FROM prenotazioni
+JOIN prenotazioni_has_ospiti
+ON  prenotazioni.id = prenotazioni_has_ospiti.prenotazione_id
+JOIN ospiti
+ON prenotazioni_has_ospiti.ospite_id = ospiti.id 
+GROUP BY prenotazioni_has_ospiti.ospite_id
